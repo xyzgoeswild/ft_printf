@@ -17,7 +17,9 @@ int format(va_list aplist, char c)
         count_len += ft_putnbr(va_arg(aplist, int));
     else if (c == 'p')
         count_len += ft_putptr(va_arg(aplist, long));
-    else if (c == 'X')
+    else if (c == 's')
+        count_len += ft_putstr(va_arg(aplist, char *));
+    else if (c == 'u')
         count_len += ft_putunsigned(va_arg(aplist, unsigned int));
     return (count_len);
 }
