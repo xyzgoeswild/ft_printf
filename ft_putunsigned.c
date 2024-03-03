@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amuhsen- <borgiba85@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/03 03:28:29 by amuhsen-          #+#    #+#             */
+/*   Updated: 2024/03/03 03:53:18 by amuhsen-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	count_len(size_t num)
@@ -45,23 +57,23 @@ static char	*ft_itoa(unsigned int n)
 	return (res);
 }
 
-int ft_putunsigned(unsigned int n)
+int	ft_putunsigned(unsigned int n)
 {
-    char *result;
-    int i;
+	int		i;
+	char	*result;
 
-    i = 0;
+	i = 0;
 	if (n == 0)
 		return (ft_putchar('0'));
 	else
 	{
-    	result = ft_itoa(n);
-    	while (result[i])
-    	{
-        	write(1, &result[i], 1);
-        	i++;
-   		}
-    	free(result);
+		result = ft_itoa(n);
+		while (result[i])
+		{
+			write(1, &result[i], 1);
+			i++;
+		}
+		free(result);
 	}
 	return (count_len(n));
 }

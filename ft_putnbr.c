@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amuhsen- <borgiba85@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/03 03:28:25 by amuhsen-          #+#    #+#             */
+/*   Updated: 2024/03/03 03:46:42 by amuhsen-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	count_len(int num)
@@ -45,18 +57,18 @@ static char	*ft_itoa(int n)
 	return (res);
 }
 
-int ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-    char *result;
-    int i;
+	int		i;
+	char	*result;
 
-    result = ft_itoa(n);
-    i = 0;
-    while (result[i])
-    {
-        write(1, &result[i], 1);
-        i++;
-    }
-    free(result);
-    return (count_len(n));
+	result = ft_itoa(n);
+	i = 0;
+	while (result[i])
+	{
+		write(1, &result[i], 1);
+		i++;
+	}
+	free(result);
+	return (count_len(n));
 }
