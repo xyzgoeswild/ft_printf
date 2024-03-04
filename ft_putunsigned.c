@@ -6,7 +6,7 @@
 /*   By: amuhsen- <borgiba85@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 03:28:29 by amuhsen-          #+#    #+#             */
-/*   Updated: 2024/03/03 03:53:18 by amuhsen-         ###   ########.fr       */
+/*   Updated: 2024/03/04 02:03:53 by amuhsen-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static int	count_len(size_t num)
 
 	len = 0;
 	if (num == 0)
-		len++;
-	if (num < 0)
 		len++;
 	while (num != 0)
 	{
@@ -42,11 +40,6 @@ static char	*ft_itoa(unsigned int n)
 		return (NULL);
 	if (n == 0)
 		res[0] = '0';
-	if (n < 0)
-	{
-		res[0] = '-';
-		num = num * -1;
-	}
 	res[len - 1] = '\0';
 	while (num != 0)
 	{

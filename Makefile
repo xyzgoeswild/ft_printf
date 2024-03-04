@@ -1,34 +1,31 @@
-#name
-NAME	=	libftprintf.a
+NAME 		= libftprintf.a
 
-#definimg main varialbles
 CC			= cc
 
-CFLAGS		= -Wall -Wextra -Werror 
+CFLAGS		= -Wall -Wextra -Werror
 
-SRCS		=	ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
+SOURCE		=	ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
 				ft_puthex.c ft_printf.c ft_putunsigned.c \
 
-OBJS		= $(SRCS:.c=.o)
+OBJECT		= $(SOURCE:.c=.o) # Substitution
 
-AR			= ar
+ARCHIVE		= ar -c -r # To Create The Archive
 
-ARF			= -rc
+all:	$(NAME) 
 
-all:	$(NAME)
+#Compile and assemble
+%.o:	%.c # Pattern rule 
+			$(CC) $(CFLAGS) -c $< -o $@
 
-%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME):	$(OBJS)
-	$(AR) $(ARF) $(NAME) $(OBJS)
+$(NAME):	$(OBJECT) # Creates The Archive
+			$(ARCHIVE) $(NAME) $(OBJECT) 
 
 clean:
-	rm -f $(OBJS)
+			rm -rf $(OBJECT)
 
-fclean:	clean
-	rm -f $(NAME)
+fclean: clean
+	rm -rf $(NAME)
 
-re:			fclean $(NAME)
+re: fclean $(NAME)
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re

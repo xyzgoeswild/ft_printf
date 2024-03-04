@@ -6,7 +6,7 @@
 /*   By: amuhsen- <borgiba85@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 03:28:04 by amuhsen-          #+#    #+#             */
-/*   Updated: 2024/03/03 03:42:26 by amuhsen-         ###   ########.fr       */
+/*   Updated: 2024/03/04 02:08:04 by amuhsen-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int	ft_printf(const char *string, ...)
 	i = 0;
 	len = 0;
 	va_start(ap, string);
-	if (!string || (string[i] == '%' && string[i] == '\0'))
+	if (!string || (string[i] == '%' && string[i + 1] == '\0'))
 		return (-1);
 	while (string[i])
 	{
-		if (string[i] == '%')
+		if (string[i] == '%' && string[i + 1] == '\0')
+			return (-1);
+		else if (string[i] == '%')
 		{
 			len += format(ap, string[i + 1]);
 			i++;
